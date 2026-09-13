@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>声叙文脉 · 有声叙事赋能地方文旅 — 项目 Demo</title>
+<meta name="description" content="以高校传媒专业力量，为古镇、非遗与乡村文旅生产有温度的有声内容资产——口述档案、故事化有声导览、新媒体内容与线下文化体验。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E2B26'/%3E%3Cg fill='none' stroke='%23E3B35A' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M10 26v12M20 18v28M30 10v44M40 20v24M50 24v16'/%3E%3C/g%3E%3Crect x='8' y='8' width='48' height='48' rx='10' fill='none' stroke='%23C34A2C' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ============ 设计令牌 ============ */
+:root{
+  --ink:#1E2B26;          /* 墨黛 */
+  --ink-2:#2E3D35;
+  --ink-3:#5A6B60;
+  --paper:#F5EFE1;        /* 宣纸 */
+  --paper-2:#EDE3CE;
+  --paper-3:#E4D7BD;
+  --cinnabar:#C04A2C;     /* 朱砂 */
+  --cinnabar-d:#9C3A22;
+  --gold:#B98A2F;         /* 暖金 */
+  --gold-l:#E3B35A;
+  --bamboo:#5E7A5E;       /* 竹青 */
+  --white:#FBF8F0;
+  --line:rgba(30,43,38,.14);
+  --serif:'Noto Serif SC',serif;
+  --sans:'Noto Sans SC',system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  --shadow:0 18px 50px -18px rgba(30,43,38,.28);
+  --radius:18px;
+  --nav-h:68px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--cinnabar);color:#fff}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ============ 通用 ============ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;letter-spacing:.32em;color:var(--cinnabar);
+  font-weight:500;margin-bottom:14px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--cinnabar)}
+.section{padding:96px 0}
+.section-head{max-width:640px;margin-bottom:56px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head.center .eyebrow::before{display:none}
+.section-head.center .eyebrow{justify-content:center}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.3;font-weight:700}
+.h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:.02em}
+.h3{font-size:21px}
+.lead{color:var(--ink-3);font-size:16.5px;margin-top:14px;font-weight:300}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 26px;border-radius:999px;font-size:15px;font-weight:500;
+  border:1px solid transparent;transition:.25s;white-space:nowrap;
+}
+.btn-primary{background:var(--cinnabar);color:#fff;box-shadow:0 10px 26px -10px rgba(192,74,44,.55)}
+.btn-primary:hover{background:var(--cinnabar-d);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.5);color:#fff;backdrop-filter:blur(4px)}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#2E3D35;transform:translateY(-2px)}
+.btn-outline{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-outline:hover{border-color:var(--cinnabar);color:var(--cinnabar)}
+
+/* ============ 导航 ============ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav-h);
+  display:flex;align-items:center;gap:28px;padding:0 32px;
+  transition:.3s;border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(245,239,225,.92);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav.dark{background:rgba(30,43,38,.82);backdrop-filter:blur(14px);border-color:rgba(255,255,255,.08)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.06em}
+.brand svg{flex:none}
+.nav-links{display:flex;gap:6px;margin-left:auto}
+.nav-links a{
+  padding:8px 16px;border-radius:999px;font-size:14.5px;color:var(--ink-3);transition:.2s;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.active{color:var(--cinnabar);background:rgba(192,74,44,.08)}
+.nav .nav-cta{margin-left:8px}
+.nav.dark .nav-links a{color:rgba(255,255,255,.75)}
+.nav.dark .nav-links a:hover{color:#fff}
+.nav.dark .nav-links a.active{color:var(--gold-l);background:rgba(227,179,90,.14)}
+.nav-burger{display:none;margin-left:auto;background:none;border:0;width:40px;height:40px;position:relative}
+.nav-burger span{position:absolute;left:9px;right:9px;height:2px;background:var(--ink);transition:.3s}
+.nav-burger span:nth-child(1){top:13px}.nav-burger span:nth-child(2){top:19px}.nav-burger span:nth-child(3){top:25px}
+.nav-burger.open span:nth-child(1){top:19px;transform:rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){top:19px;transform:rotate(-45deg)}
+.nav.dark .nav-burger span{background:#fff}
+
+/* ============ 视图切换 ============ */
+.view{display:none;min-height:100vh}
+.view.active{display:block;animation:fadeIn .5s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ============ Hero ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(18,28,24,.92) 0%,rgba(18,28,24,.66) 46%,rgba(24,36,31,.35) 100%)}
+.hero-inner{position:relative;z-index:2;padding:130px 0 150px}
+.hero .eyebrow{color:var(--gold-l)}
+.hero .eyebrow::before{background:var(--gold-l)}
+.hero h1{font-size:clamp(54px,9vw,108px);font-weight:900;letter-spacing:.10em;text-shadow:0 6px 40px rgba(0,0,0,.35)}
+.hero-sub{font-family:var(--serif);font-size:clamp(19px,2.6vw,27px);margin-top:6px;letter-spacing:.14em;color:var(--gold-l)}
+.hero-desc{max-width:560px;margin-top:22px;font-weight:300;font-size:16.5px;color:rgba(255,255,255,.88)}
+.hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:0;margin-top:56px;border-top:1px solid rgba(255,255,255,.18);padding-top:26px;flex-wrap:wrap}
+.hstat{flex:1;min-width:150px;padding-right:26px}
+.hstat b{display:block;font-family:var(--serif);font-size:clamp(24px,3vw,32px);color:var(--gold-l);font-weight:700}
+.hstat span{font-size:13px;color:rgba(255,255,255,.72);letter-spacing:.06em}
+.wave-band{position:absolute;left:0;right:0;bottom:0;height:64px;z-index:2;display:flex;align-items:flex-end;gap:5px;padding:0 24px;opacity:.85;pointer-events:none}
+.wave-band i{flex:1;background:linear-gradient(to top,var(--gold-l),transparent);border-radius:3px;animation:eq 1.1s ease-in-out infinite alternate}
+.wave-band i:nth-child(odd){animation-duration:.9s}
+.wave-band i:nth-child(3n){animation-duration:1.3s}
+@keyframes eq{from{height:8%}to{height:96%}}
+
+/* ============ 痛点带 ============ */
+.pain-band{background:var(--ink);color:#fff;padding:72px 0}
+.pain-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.pain-grid h2{color:var(--gold-l);font-size:clamp(24px,3vw,34px)}
+.pain-grid .lead{color:rgba(255,255,255,.78)}
+.pain-list{display:grid;gap:16px}
+.pain-item{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px 20px}
+.pain-item b{display:block;font-family:var(--serif);font-size:17px;margin-bottom:2px}
+.pain-item p{font-size:14px;color:rgba(255,255,255,.72);font-weight:300}
+.pain-no{font-family:var(--serif);color:var(--cinnabar);font-weight:700;font-size:20px;line-height:1}
+.fix-no{color:var(--gold-l)}
+.answer{display:grid;gap:14px;margin-top:30px}
+.answer-item{display:flex;gap:14px;align-items:flex-start;background:rgba(192,74,44,.14);border-left:3px solid var(--cinnabar);padding:14px 18px;border-radius:0 12px 12px 0}
+.answer-item b{color:#fff;font-size:15px}
+.answer-item span{font-size:14px;color:rgba(255,255,255,.78);font-weight:300}
+
+/* ============ 卡片通用 ============ */
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+
+/* ============ 双轮驱动 ============ */
+.duel{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-top:10px}
+.duel-side{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;position:relative}
+.duel-side h3{display:flex;align-items:center;gap:10px;font-size:20px}
+.duel-side h3 .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.duel-side .dot.online{background:var(--cinnabar);box-shadow:0 0 0 5px rgba(192,74,44,.16)}
+.duel-side .dot.offline{background:var(--bamboo);box-shadow:0 0 0 5px rgba(94,122,94,.16)}
+.duel-side ul{list-style:none;margin-top:18px;display:grid;gap:11px}
+.duel-side li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-2)}
+.duel-side li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--gold-l)}
+.duel-core{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 22px;text-align:center;position:relative}
+.duel-core .core-ring{width:130px;height:130px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:16px;text-align:center;line-height:1.5;box-shadow:0 0 0 8px rgba(30,43,38,.06),var(--shadow);position:relative}
+.duel-core .core-flow{font-size:13px;color:var(--ink-3);letter-spacing:.05em}
+.duel-arrow{width:34px;height:34px;border-radius:50%;background:var(--gold-l);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:14px;flex:none}
+.duel-core{background:linear-gradient(180deg,var(--paper),var(--paper-2))}
+
+/* ============ 服务卡 ============ */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.svc-card .svc-img{height:180px;overflow:hidden;position:relative}
+.svc-card .svc-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.svc-card:hover .svc-img img{transform:scale(1.06)}
+.svc-no{position:absolute;top:12px;left:12px;background:rgba(30,43,38,.82);color:var(--gold-l);font-family:var(--serif);font-size:13px;padding:4px 10px;border-radius:999px;letter-spacing:.08em;backdrop-filter:blur(4px)}
+.svc-body{padding:22px}
+.svc-body h3{font-size:18.5px;margin-bottom:10px}
+.svc-body p{font-size:13.8px;color:var(--ink-3);font-weight:300}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.svc-tags span{font-size:11.5px;color:var(--cinnabar);background:rgba(192,74,44,.08);border:1px solid rgba(192,74,44,.18);padding:3px 9px;border-radius:999px}
+
+/* ============ 流程时间轴 ============ */
+.flow-wrap{background:var(--ink);border-radius:24px;padding:56px 40px;color:#fff;margin-top:10px}
+.flow-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:24px}
+.flow-head h3{font-size:clamp(22px,2.6vw,30px);color:var(--gold-l)}
+.flow-head p{color:rgba(255,255,255,.7);font-weight:300;font-size:14.5px;max-width:420px}
+.flow-steps{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr 34px 1fr 34px 1fr 34px 1fr;align-items:start}
+.flow-step{text-align:left}
+.fs-num{font-family:var(--serif);color:var(--cinnabar);font-size:13px;letter-spacing:.2em;font-weight:700}
+.fs-name{font-family:var(--serif);font-size:18px;margin:6px 0 4px;color:#fff}
+.fs-desc{font-size:12.5px;color:rgba(255,255,255,.62);font-weight:300;line-height:1.6}
+.flow-node{width:34px;display:flex;justify-content:center;padding-top:34px}
+.flow-node i{width:12px;height:12px;border-radius:50%;background:var(--gold-l);box-shadow:0 0 0 5px rgba(227,179,90,.18)}
+.flow-node.todo i{background:rgba(255,255,255,.25);box-shadow:none}
+.flow-line{height:1px;background:linear-gradient(90deg,var(--gold-l),rgba(255,255,255,.14));align-self:start;margin-top:39px;position:relative}
+
+/* ============ 案例 ============ */
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case-card .case-img{height:230px;overflow:hidden;position:relative}
+.case-card .case-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.case-card:hover .case-img img{transform:scale(1.06)}
+.case-tag{position:absolute;bottom:12px;left:12px;background:rgba(192,74,44,.9);color:#fff;font-size:12px;padding:4px 12px;border-radius:999px;letter-spacing:.06em}
+.case-body{padding:22px}
+.case-body h3{font-size:19px;margin-bottom:8px}
+.case-body p{font-size:13.8px;color:var(--ink-3);font-weight:300}
+.case-body .deliver{margin-top:12px;font-size:12.5px;color:var(--bamboo);font-weight:500}
+.case-body .deliver::before{content:"产出 · "}
+
+/* ============ 商业/财务 ============ */
+.biz-band{background:var(--ink);color:#fff;padding:96px 0}
+.biz-band .eyebrow{color:var(--gold-l)}
+.biz-band .eyebrow::before{background:var(--gold-l)}
+.biz-band .lead{color:rgba(255,255,255,.75)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:44px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px}
+.kpi b{font-family:var(--serif);font-size:clamp(26px,3.2vw,36px);color:var(--gold-l);font-weight:700}
+.kpi small{display:block;margin-top:6px;font-size:13px;color:rgba(255,255,255,.7);font-weight:300}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:52px}
+.rev-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:26px}
+.rev-item .num{font-family:var(--serif);font-size:15px;color:var(--gold-l);letter-spacing:.12em}
+.rev-item h4{font-size:18px;margin:10px 0 8px}
+.rev-item p{font-size:13.5px;color:rgba(255,255,255,.72);font-weight:300}
+.charts-row{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
+.chart-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px 20px}
+.chart-card h4{color:#fff;font-size:17px;margin-bottom:4px}
+.chart-card .note{font-size:12px;color:rgba(255,255,255,.55);font-weight:300;margin-bottom:10px}
+.chart-box{width:100%;height:280px}
+
+/* ============ 规划时间轴 ============ */
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.plan-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;position:relative;overflow:hidden}
+.plan-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--cinnabar),var(--gold-l))}
+.plan-phase{font-family:var(--serif);font-size:13px;letter-spacing:.24em;color:var(--cinnabar);font-weight:700}
+.plan-card h3{font-size:24px;margin:10px 0 6px}
+.plan-sub{color:var(--ink-3);font-size:14.5px;font-weight:300;margin-bottom:22px}
+.plan-targets{display:grid;gap:10px;margin-bottom:24px}
+.pt{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dashed var(--line);padding-bottom:8px;font-size:14px}
+.pt span{color:var(--ink-3)}
+.pt b{font-family:var(--serif);color:var(--cinnabar);font-weight:600;white-space:nowrap}
+.plan-milestones{list-style:none;display:grid;gap:9px}
+.plan-milestones li{position:relative;padding-left:20px;font-size:13.8px;color:var(--ink-2);font-weight:300}
+.plan-milestones li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold-l)}
+
+/* ============ 团队 ============ */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.team-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px}
+.team-role{display:inline-block;font-size:12px;letter-spacing:.14em;color:var(--bamboo);font-weight:500;border:1px solid rgba(94,122,94,.3);padding:3px 10px;border-radius:999px;margin-bottom:12px}
+.team-card h4{font-size:17px;margin-bottom:8px}
+.team-card p{font-size:13.5px;color:var(--ink-3);font-weight:300}
+.team-note{margin-top:28px;font-size:13.5px;color:var(--ink-3);background:var(--paper-2);border-radius:12px;padding:16px 20px;font-weight:300}
+
+/* ============ CTA / footer ============ */
+.cta-band{background:linear-gradient(120deg,var(--cinnabar),#A63A20);color:#fff;text-align:center;padding:84px 0}
+.cta-band h2{font-size:clamp(26px,4vw,40px);letter-spacing:.04em}
+.cta-band p{margin:16px auto 32px;max-width:520px;color:rgba(255,255,255,.85);font-weight:300}
+.cta-band .btn{background:#fff;color:var(--cinnabar)}
+.cta-band .btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(0,0,0,.4)}
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:44px 0;font-size:13.5px}
+.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:.08em}
+.foot-note{font-weight:300;max-width:560px}
+.foot-note b{color:var(--gold-l);font-weight:500}
+
+/* ============ 导览体验页 ============ */
+.demo-hero{background:var(--ink);color:#fff;padding:120px 0 54px;position:relative;overflow:hidden}
+.demo-hero::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(227,179,90,.16),transparent 70%)}
+.demo-hero .eyebrow{color:var(--gold-l)}
+.demo-hero .eyebrow::before{background:var(--gold-l)}
+.demo-hero h1{font-size:clamp(30px,4vw,44px)}
+.demo-hero p{color:rgba(255,255,255,.75);font-weight:300;max-width:640px;margin-top:12px}
+.demo-layout{display:grid;grid-template-columns:330px 1fr 300px;gap:28px;padding:54px 0 90px;align-items:start}
+.demo-tracks h3,.demo-note h3{font-size:17px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.demo-tracks h3::before,.demo-note h3::before{content:"";width:6px;height:18px;background:var(--cinnabar);border-radius:3px}
+.track-btn{display:flex;gap:14px;width:100%;text-align:left;background:var(--white);border:1.5px solid var(--line);border-radius:14px;padding:12px;margin-bottom:12px;transition:.25s}
+.track-btn:hover{border-color:var(--gold)}
+.track-btn.active{border-color:var(--cinnabar);box-shadow:0 8px 22px -12px rgba(192,74,44,.4)}
+.track-thumb{width:64px;height:64px;border-radius:10px;overflow:hidden;flex:none}
+.track-thumb img{width:100%;height:100%;object-fit:cover}
+.track-info b{display:block;font-family:var(--serif);font-size:15px;line-height:1.4}
+.track-info span{font-size:12px;color:var(--ink-3)}
+.track-ver{display:inline-block;margin-top:4px;font-size:11px;color:var(--cinnabar);background:rgba(192,74,44,.08);padding:1px 8px;border-radius:999px}
+
+/* 手机 */
+.phone-wrap{display:flex;justify-content:center}
+.phone{
+  width:100%;max-width:420px;background:var(--ink);border-radius:44px;padding:14px;
+  box-shadow:0 40px 80px -30px rgba(30,43,38,.5);border:1px solid rgba(255,255,255,.08);
+}
+.phone-screen{background:var(--paper);border-radius:32px;overflow:hidden;min-height:640px;display:flex;flex-direction:column}
+.phone-notch{height:34px;background:var(--ink);position:relative}
+.phone-notch::after{content:"";position:absolute;left:50%;top:9px;transform:translateX(-50%);width:110px;height:20px;background:var(--ink);border-radius:0 0 12px 12px}
+.phone-content{flex:1;display:flex;flex-direction:column;padding:20px 20px 24px}
+.pt-img{height:210px;border-radius:16px;overflow:hidden;position:relative;flex:none}
+.pt-img img{width:100%;height:100%;object-fit:cover}
+.pt-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(18,28,24,.55),transparent 40%)}
+.pt-badge{position:absolute;left:14px;bottom:12px;color:#fff;font-size:12px;background:rgba(192,74,44,.92);padding:4px 12px;border-radius:999px;letter-spacing:.05em;z-index:2}
+.pt-title{font-family:var(--serif);font-size:22px;margin-top:18px;line-height:1.35}
+.pt-meta{font-size:13px;color:var(--ink-3);margin-top:6px;font-weight:300}
+.chips{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.chip{font-size:12.5px;padding:6px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink-2);transition:.2s}
+.chip:hover{border-color:var(--gold)}
+.chip.active{background:var(--ink);color:var(--gold-l);border-color:var(--ink)}
+/* 播放器 */
+.player{margin-top:20px;background:var(--ink);border-radius:18px;padding:18px 18px 14px;color:#fff}
+.wave-canvas{width:100%;height:56px;display:block}
+.seek-row{display:flex;align-items:center;gap:12px;margin-top:10px}
+.seek{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:4px;background:rgba(255,255,255,.2);outline:none}
+.seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--gold-l);cursor:pointer;box-shadow:0 0 0 4px rgba(227,179,90,.22)}
+.seek::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--gold-l);cursor:pointer;border:0}
+.seek::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(to right,var(--gold-l) var(--p,0%),rgba(255,255,255,.2) var(--p,0%))}
+.time{font-size:12px;color:rgba(255,255,255,.75);font-variant-numeric:tabular-nums;min-width:38px;text-align:center}
+.play-btn{width:52px;height:52px;border-radius:50%;background:var(--cinnabar);border:0;color:#fff;display:flex;align-items:center;justify-content:center;flex:none;transition:.2s;margin-top:12px}
+.play-btn:hover{transform:scale(1.06);background:var(--cinnabar-d)}
+.play-btn svg{width:20px;height:20px}
+.lyrics{margin-top:16px;display:grid;gap:8px}
+.lyr{font-size:13px;color:var(--ink-3);font-weight:300;padding-left:12px;border-left:2px solid var(--line);transition:.3s;line-height:1.6}
+.lyr.on{color:var(--ink);border-left-color:var(--cinnabar);font-weight:500}
+.demo-note{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:24px}
+.demo-note p{font-size:13.5px;color:var(--ink-2);font-weight:300;margin-bottom:12px}
+.demo-note .flag{display:inline-block;font-size:11px;color:#fff;background:var(--bamboo);border-radius:999px;padding:2px 10px;margin-top:4px}
+
+/* ============ 档案页 ============ */
+.plan-hero{background:var(--ink);color:#fff;padding:120px 0 54px}
+.plan-hero .eyebrow{color:var(--gold-l)}
+.plan-hero .eyebrow::before{background:var(--gold-l)}
+.plan-hero h1{font-size:clamp(30px,4vw,44px)}
+.plan-hero p{color:rgba(255,255,255,.75);font-weight:300;max-width:660px;margin-top:12px}
+.arch-sec{padding:64px 0;border-bottom:1px solid var(--line)}
+.arch-sec:last-child{border-bottom:0}
+.arch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.arch-item{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px}
+.arch-item h4{font-size:16.5px;margin-bottom:8px;display:flex;gap:10px;align-items:center}
+.arch-item h4 .n{color:var(--cinnabar);font-family:var(--serif);font-weight:700}
+.arch-item p{font-size:13.8px;color:var(--ink-3);font-weight:300}
+.cmp-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:14px;overflow:hidden;font-size:13.5px}
+.cmp-table th,.cmp-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp-table thead th{background:var(--ink);color:var(--gold-l);font-family:var(--serif);font-weight:600;font-size:14px;letter-spacing:.04em}
+.cmp-table tbody tr:last-child td{border-bottom:0}
+.cmp-table .star-row{background:rgba(192,74,44,.06)}
+.cmp-table .star-row td{font-weight:500}
+.tag-pos{color:var(--bamboo);font-weight:500}
+.tag-neg{color:var(--cinnabar);font-weight:400}
+.risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.risk-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px}
+.risk-card h4{font-size:16px;margin-bottom:8px}
+.risk-card p{font-size:13px;color:var(--ink-3);font-weight:300}
+.risk-card .k{color:var(--cinnabar);font-weight:500}
+.eq-bar{display:grid;grid-template-columns:25% 45% 30%;height:64px;border-radius:12px;overflow:hidden;margin:18px 0 10px;font-size:12px}
+.eq-bar div{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:500}
+.eq-bar .inv{background:var(--cinnabar)}
+.eq-bar .founder{background:var(--ink)}
+.eq-bar .team{background:var(--gold)}
+.eq-legend{display:flex;gap:20px;font-size:13px;color:var(--ink-3);flex-wrap:wrap}
+.eq-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+
+/* ============ Reveal ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .case-grid{grid-template-columns:repeat(2,1fr)}
+  .demo-layout{grid-template-columns:1fr 1fr;grid-template-areas:"tracks tracks""phone note"}
+  .demo-tracks{grid-area:tracks;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .demo-tracks h3{grid-column:1/-1}
+  .track-btn{margin-bottom:0}
+  .phone-wrap{grid-area:phone}
+  .demo-note{grid-area:note}
+  .charts-row{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .risk-grid{grid-template-columns:repeat(2,1fr)}
+  .flow-steps{grid-template-columns:1fr 34px 1fr 34px 1fr;row-gap:26px}
+  .flow-node{display:none}
+}
+@media (max-width:768px){
+  .section{padding:72px 0}
+  .nav-links{position:fixed;top:var(--nav-h);left:0;right:0;background:var(--paper);flex-direction:column;padding:16px 24px;gap:4px;border-bottom:1px solid var(--line);transform:translateY(-130%);visibility:hidden;opacity:0;pointer-events:none;transition:transform .3s ease,visibility .3s,opacity .3s;z-index:99}
+  .nav-links.open{transform:none;visibility:visible;opacity:1;pointer-events:auto}
+  .nav-links a{padding:12px 8px;font-size:16px}
+  .nav-burger{display:block}
+  .nav .nav-cta{display:none}
+  .pain-grid,.duel,.plan-grid{grid-template-columns:1fr}
+  .duel-core{order:-1;padding:0 0 18px}
+  .duel-arrow{transform:rotate(90deg);position:static;margin:0 auto}
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+  .rev-grid{grid-template-columns:1fr}
+  .case-grid,.svc-grid{grid-template-columns:1fr}
+  .demo-layout{grid-template-columns:1fr;grid-template-areas:"tracks""phone""note"}
+  .demo-tracks{grid-template-columns:1fr}
+  .arch-grid,.risk-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .flow-wrap{padding:40px 22px}
+  .flow-steps{grid-template-columns:1fr;gap:18px}
+  .flow-step{padding-left:26px;position:relative}
+  .flow-step::before{content:"";position:absolute;left:6px;top:6px;bottom:-18px;width:1px;background:rgba(227,179,90,.3)}
+  .flow-step:last-child::before{display:none}
+  .flow-step .fs-num::before{content:"● ";color:var(--gold-l)}
+  .hero-stats{gap:18px}
+  .hstat{min-width:130px}
+  .foot-grid{flex-direction:column;align-items:flex-start}
+  .cmp-table{font-size:12.5px}
+  .cmp-table th,.cmp-table td{padding:10px 10px}
+}
+@media (max-width:520px){
+  .container{padding:0 20px}
+  .hero-cta .btn{width:100%}
+  .kpi-row{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 导航 ===== -->
+<header class="nav" id="siteNav">
+  <a href="#home" class="brand" data-nav>
+    <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1E2B26"/><g fill="none" stroke="#E3B35A" stroke-width="4.5" stroke-linecap="round"><path d="M10 26v12M20 18v28M30 10v44M40 20v24M50 24v16"/></g></svg>
+    声叙文脉
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#home" data-nav>首页</a>
+    <a href="#demo" data-nav>有声导览体验</a>
+    <a href="#plan" data-nav>项目档案</a>
+  </nav>
+  <a href="#demo" class="btn btn-primary nav-cta">体验有声导览</a>
+  <button class="nav-burger" id="navBurger" aria-label="打开菜单"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+<!-- ===== 视图：首页 ===== -->
+<section class="view active" id="home">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-bg"><img src="assets/img/hlx-ginkgo.jpg" alt="黄龙溪古镇秋日银杏与青瓦老街"></div>
+    <div class="hero-inner container">
+      <p class="eyebrow">高校传媒专业 × 地方文旅 · 项目 Demo</p>
+      <h1>声叙文脉</h1>
+      <p class="hero-sub">有声叙事 · 让地方文化被听见</p>
+      <p class="hero-desc">以播音主持与广播电视编导专业力量，为古镇、非遗与乡村文旅生产「有温度的有声内容资产」——口述档案、故事化有声导览、新媒体内容与线下文化体验，补齐文旅软性内容短板。</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#demo">▶ 体验有声导览 Demo</a>
+        <a class="btn btn-ghost" href="#plan">查看项目档案</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>2 大</b><span>线上内容 × 线下体验双轮驱动</span></div>
+        <div class="hstat"><b>4 类</b><span>核心内容服务产品</span></div>
+        <div class="hstat"><b>川渝</b><span>古镇 · 非遗标杆落地场景</span></div>
+        <div class="hstat"><b>轻资产</b><span>内容为本，技术为辅</span></div>
+      </div>
+    </div>
+    <div class="wave-band" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+  </div>
+
+  <!-- 痛点 -->
+  <div class="pain-band">
+    <div class="container pain-grid">
+      <div class="reveal">
+        <p class="eyebrow">行业痛点</p>
+        <h2>景点很多，好故事很少</h2>
+        <p class="lead">大量古镇、非遗点位与乡村文旅拥有丰厚历史资源，却普遍「重硬件建设、轻软性内容创作」：机器合成语音讲解、教科书式文案、宣传展板与官方宣传片——叙事生硬，难以触达年轻游客。</p>
+        <div class="answer">
+          <div class="answer-item"><b>有景点，无好故事</b><span>—— 故事化、有温度的内容供给严重不足</span></div>
+          <div class="answer-item"><b>有文化，难触达年轻人</b><span>—— 传统传播形式陈旧，轻量化视听内容缺失</span></div>
+          <div class="answer-item"><b>有需求，缺专业力量</b><span>—— 区县文旅缺乏懂叙事、懂视听、懂新媒体的团队</span></div>
+        </div>
+      </div>
+      <div class="pain-list reveal">
+        <div class="pain-item">
+          <span class="pain-no">01</span>
+          <div><b>导览内容模板化</b><p>通用导览多为 AI 机器语音，文案枯燥，缺少传承人原生口述与人文故事。</p></div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-no">02</span>
+          <div><b>传播形式陈旧</b><p>官方公众号、展板、纸质手册难以打动年轻游客，短视频与音频收听已成为主流渠道。</p></div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-no">03</span>
+          <div><b>外部公司不接地气</b><p>商业广告公司不熟悉本土历史文脉，产出内容浮于表面；政府团队又缺年轻化表达。</p></div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-no">04</span>
+          <div><b>口述记忆濒临流失</b><p>传承人、老街居民的活态民间记忆正随岁月消散，缺少抢救性记录。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 解决方案 / 双轮驱动 -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">我们的回答</p>
+        <h2 class="h2">文旅「软性内容资产生产 + 一体传播」双轮驱动</h2>
+        <p class="lead">不做硬件、不开发大型商业 APP，专注内容创意服务——线上视听内容矩阵负责传播引流，线下文化体验活动负责承接转化，形成完整闭环。</p>
+      </div>
+      <div class="duel reveal">
+        <div class="duel-side">
+          <h3><span class="dot online"></span>线上 · 视听内容矩阵</h3>
+          <ul>
+            <li>田野走访传承人与老街居民，采集口述史料</li>
+            <li>脚本撰写、多风格专业配音、音频剪辑</li>
+            <li>口述档案 · 故事化导览音频 · 纪实短片 · AIGC 文化漫剧 · 科普短视频</li>
+            <li>新媒体账号矩阵运营与矩阵分发</li>
+          </ul>
+        </div>
+        <div class="duel-core">
+          <div class="core-flow">线上传播引流</div>
+          <span class="duel-arrow ar">↓</span>
+          <div class="core-ring">内容资产<br>生产中枢</div>
+          <span class="duel-arrow rl">↑</span>
+          <div class="core-flow">线下体验承接</div>
+        </div>
+        <div class="duel-side">
+          <h3><span class="dot offline"></span>线下 · 文化体验活动</h3>
+          <ul>
+            <li>古镇沉浸式打卡任务设计</li>
+            <li>非遗口述故事会策划与现场主持</li>
+            <li>研学剧本体验活动与任务包开发</li>
+            <li>把音频故事、历史叙事转化为实地体验</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 四大服务 -->
+  <div class="section" style="padding-top:20px">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">核心服务产品</p>
+        <h2 class="h2">四类内容创意服务，一套专业生产链</h2>
+        <p class="lead">服务对象：区县文旅单位 · 中小型博物馆 · 非遗工坊 · 古镇运营企业 · 乡村文旅示范点。</p>
+      </div>
+      <div class="svc-grid">
+        <article class="card svc-card reveal">
+          <div class="svc-img"><img src="assets/img/field-interview.jpg" alt="田野访谈：学生采访非遗传承人" loading="lazy"><span class="svc-no">01</span></div>
+          <div class="svc-body">
+            <h3>在地口述档案采集制作</h3>
+            <p>实地访谈、录音采集、脚本整理、多版本配音与字幕文稿归档，输出可用于博物馆与文旅平台的原生声音档案，抢救留存在地记忆。</p>
+            <div class="svc-tags"><span>原生声音档案</span><span>抢救性记录</span><span>授权合规</span></div>
+          </div>
+        </article>
+        <article class="card svc-card reveal">
+          <div class="svc-img"><img src="assets/img/studio-vo.jpg" alt="专业录音棚配音" loading="lazy"><span class="svc-no">02</span></div>
+          <div class="svc-body">
+            <h3>故事化有声导览内容全案</h3>
+            <p>针对景点点位制作科普版、少儿版、文艺叙事版等多套音频讲解，可直接对接合作方小程序、H5 导览系统使用。</p>
+            <div class="svc-tags"><span>多版本音频</span><span>一键接入 H5/小程序</span><span>故事化口述</span></div>
+          </div>
+        </article>
+        <article class="card svc-card reveal">
+          <div class="svc-img"><img src="assets/img/shortvideo.jpg" alt="古镇短视频拍摄现场" loading="lazy"><span class="svc-no">03</span></div>
+          <div class="svc-body">
+            <h3>新媒体内容定制服务</h3>
+            <p>文旅纪实短片、AIGC 非遗漫剧、科普短视频，账号代运营与矩阵分发，用年轻化叙事降低传统文化理解门槛。</p>
+            <div class="svc-tags"><span>短视频/漫剧</span><span>账号代运营</span><span>矩阵分发</span></div>
+          </div>
+        </article>
+        <article class="card svc-card reveal">
+          <div class="svc-img"><img src="assets/img/story-event.jpg" alt="古镇研学故事会活动" loading="lazy"><span class="svc-no">04</span></div>
+          <div class="svc-body">
+            <h3>线下文化体验活动策划</h3>
+            <p>古镇打卡剧本、非遗口述故事会、研学任务包、现场主持与演绎，把音频故事延伸到实地，实现「线上听故事，线下实地体验」。</p>
+            <div class="svc-tags"><span>打卡剧本</span><span>研学任务包</span><span>现场执行</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- 生产流程 -->
+  <div class="section" style="padding-top:20px">
+    <div class="container">
+      <div class="flow-wrap reveal">
+        <div class="flow-head">
+          <div>
+            <p class="eyebrow">标准化生产流程</p>
+            <h3>一项目一调研，一客户一方案</h3>
+          </div>
+          <p>从田野调研到交付成品，全程文史顾问把关史实、三级审核内容，兼顾文化严谨性与传播趣味性。</p>
+        </div>
+        <div class="flow-steps">
+          <div class="flow-step"><div class="fs-num">STEP 01</div><div class="fs-name">田野调研</div><div class="fs-desc">实地走访，查阅文史资料，梳理点位文脉</div></div>
+          <div class="flow-line"></div>
+          <div class="flow-step"><div class="fs-num">STEP 02</div><div class="fs-name">访谈采集</div><div class="fs-desc">访谈传承人、老街居民，采集一手口述</div></div>
+          <div class="flow-line"></div>
+          <div class="flow-step"><div class="fs-num">STEP 03</div><div class="fs-name">脚本审核</div><div class="fs-desc">对接文史/非遗顾问双重审核史实</div></div>
+          <div class="flow-line"></div>
+          <div class="flow-step"><div class="fs-num">STEP 04</div><div class="fs-name">配音制作</div><div class="fs-desc">播音组多风格配音，专业录音与混音</div></div>
+          <div class="flow-line"></div>
+          <div class="flow-step"><div class="fs-num">STEP 05</div><div class="fs-name">后期包装</div><div class="fs-desc">剪辑包装、AIGC 辅助、字幕归档</div></div>
+          <div class="flow-line"></div>
+          <div class="flow-step"><div class="fs-num">STEP 06</div><div class="fs-name">交付成品</div><div class="fs-desc">对接 H5/小程序/公众号/现场二维码使用</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- 标杆案例 -->
+  <div class="section" style="padding-top:20px">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">标杆落地场景</p>
+        <h2 class="h2">川渝古镇与非遗，先行一步</h2>
+        <p class="lead">项目优先打磨川渝本土古镇与非遗标杆案例，沉淀可复制的服务流程与作品集，再向更多区县复制推广。</p>
+      </div>
+      <div class="case-grid">
+        <article class="card case-card reveal">
+          <div class="case-img"><img src="assets/img/hlx-teahouse-street.jpg" alt="黄龙溪复兴老茶馆" loading="lazy"><span class="case-tag">历史文化街区</span></div>
+          <div class="case-body">
+            <h3>黄龙溪古镇 · 复兴老茶馆</h3>
+            <p>千年古镇的市井烟火：盖碗茶、龙门阵、古码头。以茶馆为中心点，采集老街居民口述，制作文艺叙事版与少儿探秘版有声导览。</p>
+            <div class="deliver">口述档案 · 双版本导览音频 · 打卡剧本</div>
+          </div>
+        </article>
+        <article class="card case-card reveal">
+          <div class="case-img"><img src="assets/img/cqk-stilt.jpg" alt="磁器口吊脚楼与石桥" loading="lazy"><span class="case-tag">古镇运营企业</span></div>
+          <div class="case-body">
+            <h3>磁器口 · 吊脚楼群</h3>
+            <p>依山傍水的巴渝吊脚楼建筑群，承载码头文化记忆。制作建筑故事化导览与文旅纪实短片，帮助游客「听懂建筑背后的故事」。</p>
+            <div class="deliver">有声导览全案 · 纪实短片 · 新媒体矩阵</div>
+          </div>
+        </article>
+        <article class="card case-card reveal">
+          <div class="case-img"><img src="assets/img/workshop.jpg" alt="蜀绣工坊" loading="lazy"><span class="case-tag">非遗工坊</span></div>
+          <div class="case-body">
+            <h3>蜀绣工坊 · 传承人口述</h3>
+            <p>走进绣坊，录制绣娘六十年学艺口述档案；AIGC 辅助生成非遗漫剧分镜初稿，经人工改写后制成科普短视频与研学任务包。</p>
+            <div class="deliver">口述档案 · AIGC 漫剧 · 研学体验活动</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- 商业模式与财务 -->
+  <div class="biz-band">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">商业模式</p>
+        <h2 class="h2">内容为王，以项目养项目</h2>
+        <p class="lead">面向文旅单位、非遗工坊与文旅企业获取收益，不以 C 端游客为盈利来源；轻资产运营，单位创作成本随项目增多持续摊薄。</p>
+      </div>
+
+      <div class="rev-grid">
+        <div class="rev-item reveal">
+          <div class="num">01 · 核心收入</div>
+          <h4>定制内容项目服务费</h4>
+          <p>承接口述档案采集、有声导览全案、短视频/漫剧制作、线下活动策划执行，按项目包干制报价收费。</p>
+        </div>
+        <div class="rev-item reveal">
+          <div class="num">02 · 经常性收入</div>
+          <h4>新媒体代运营服务费</h4>
+          <p>为合作文旅主体提供账号内容策划、脚本撰写、视频剪辑发布的月度代运营服务，按月收取费用。</p>
+        </div>
+        <div class="rev-item reveal">
+          <div class="num">03 · 延伸收入</div>
+          <h4>成果授权与二次服务</h4>
+          <p>制作完成的内容资产在约定范围内授权使用；针对既有成果提供二次改编、多版本再创作服务。</p>
+        </div>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi reveal"><b>7.5 万</b><small>首年营收测算</small></div>
+        <div class="kpi reveal"><b>35%</b><small>毛利率（首年测算）</small></div>
+        <div class="kpi reveal"><b>1.8 万</b><small>首年净利润</small></div>
+        <div class="kpi reveal"><b>4 年</b><small>静态投资回收期</small></div>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-card reveal">
+          <h4>未来 3 年营收趋势</h4>
+          <div class="note">首年为财务测算值；第 2–3 年为演示推算值（第 3 年目标 18 万元为策划书既定目标）。</div>
+          <div class="chart-box" id="chartRevenue" role="img" aria-label="未来三年营收趋势柱状图，第一年7.5万、第二年12万、第三年18万元"></div>
+        </div>
+        <div class="chart-card reveal">
+          <h4>融资资金用途（80 万）</h4>
+          <div class="note">拟出让 25% 股权，引入战略合作资金 80 万元，无债务。</div>
+          <div class="chart-box" id="chartFunding" role="img" aria-label="融资资金用途环形图：内容生产研发30%、市场与商务20%、风险与合规20%、客户服务10%、人力与综合运营20%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 未来规划 -->
+  <div class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">未来展望</p>
+        <h2 class="h2">从标杆案例，到可复制的赋能范式</h2>
+      </div>
+      <div class="plan-grid">
+        <article class="plan-card reveal">
+          <div class="plan-phase">短期 · 1 年内</div>
+          <h3>项目夯实起步期</h3>
+          <p class="plan-sub">打磨标杆案例，完善服务流程，搭建作品集，实现收支基本平衡。</p>
+          <div class="plan-targets">
+            <div class="pt"><span>标杆项目落地</span><b>1–2 个</b></div>
+            <div class="pt"><span>意向合作客户</span><b>3–5 家</b></div>
+            <div class="pt"><span>全平台案例曝光</span><b>12 万+</b></div>
+            <div class="pt"><span>团队规模</span><b>8–10 人</b></div>
+          </div>
+          <ul class="plan-milestones">
+            <li>1–3 月：完善方案、敲定标杆合作、完成样片样稿</li>
+            <li>4–6 月：实地访谈采集，首批作品交付，搭建新媒体账号</li>
+            <li>7–9 月：争取 1–2 个小型商业订单，筹备创新创业大赛申报</li>
+            <li>10–12 月：完成年度营收目标，沉淀完整作品集</li>
+          </ul>
+        </article>
+        <article class="plan-card reveal">
+          <div class="plan-phase">长期 · 3 年内</div>
+          <h3>项目规模升级期</h3>
+          <p class="plan-sub">扩大合作版图，打造区域有知名度的文旅内容创意服务团队，实现稳定盈利。</p>
+          <div class="plan-targets">
+            <div class="pt"><span>文旅标杆案例</span><b>8 个以上</b></div>
+            <div class="pt"><span>长期合作客户</span><b>12 家以上</b></div>
+            <div class="pt"><span>全平台累计曝光</span><b>90 万+</b></div>
+            <div class="pt"><span>第三年年营收</span><b>18 万+</b></div>
+          </div>
+          <ul class="plan-milestones">
+            <li>第 13–24 月：规模扩张期，拓展区县文旅与研学机构合作，完善报价体系</li>
+            <li>第 25–36 月：价值升级期，探索跨区域合作，沉淀可复制的「高校传媒赋能地方文旅」范式</li>
+            <li>产出知识产权：脚本汇编、内容生产流程手册</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- 团队 -->
+  <div class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">团队构成</p>
+        <h2 class="h2">一支完整的视听内容生产团队</h2>
+        <p class="lead">成员全部来自播音主持、编导专业，覆盖调研、脚本、访谈、配音、后期与活动策划全链条。</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal"><span class="team-role">统筹</span><h4>项目负责人</h4><p>统筹项目整体规划与商务合作，把控项目方向、调研与进度管理，对接指导老师与合作单位。</p></div>
+        <div class="team-card reveal"><span class="team-role">访谈 &amp; 播音</span><h4>访谈播音组 · 甲</h4><p>丰富访谈、出镜主持经验，负责田野采访、现场主持、多风格配音，把控语言表达与音频录制质量。</p></div>
+        <div class="team-card reveal"><span class="team-role">访谈 &amp; 播音</span><h4>访谈播音组 · 乙</h4><p>擅长叙事类文稿朗读，负责少儿向版本音频录制与线下活动现场主持，把控活动氛围。</p></div>
+        <div class="team-card reveal"><span class="team-role">编导脚本</span><h4>编导脚本组 · 甲</h4><p>实地调研、文史资料查阅、访谈提纲设计、脚本撰写与分镜策划，负责内容文化严谨性初审。</p></div>
+        <div class="team-card reveal"><span class="team-role">编导脚本</span><h4>编导脚本组 · 乙</h4><p>短视频与 AIGC 漫剧脚本创作、新媒体内容策划、平台内容排期与账号运营。</p></div>
+        <div class="team-card reveal"><span class="team-role">后期制作</span><h4>后期音视频组 · 甲</h4><p>录音后期混音、降噪剪辑；短视频拍摄与素材整理归档。</p></div>
+        <div class="team-card reveal"><span class="team-role">后期制作</span><h4>后期音视频组 · 乙</h4><p>视频剪辑与包装、AIGC 素材生成与人工精修、图文排版与物料制作。</p></div>
+        <div class="team-card reveal"><span class="team-role">活动策划</span><h4>活动策划 &amp; 视觉组</h4><p>线下研学打卡剧本与任务包设计、活动流程策划、海报图文视觉物料设计、现场执行。</p></div>
+        <div class="team-card reveal"><span class="team-role">外部协作</span><h4>顾问与协作者</h4><p>可外聘文史/非遗领域顾问审核史实；联动计算机专业同学按需完成轻量化 H5 演示载体开发。</p></div>
+      </div>
+      <p class="team-note reveal">技术载体方面：不自主开发大型 APP，内容成品交付后可直接复用合作方现有 H5、小程序；依托学校演播室、录音间与摄影设备即可完成生产，人员、技术、工具均具备落地可行性。</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <h2>来听一段，地方的声音</h2>
+      <p>体验「声叙文脉」的故事化有声导览 Demo——同一处景点，文艺叙事、少儿探秘、传承人口述，三种打开方式。</p>
+      <a class="btn" href="#demo">▶ 立即体验有声导览</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== 视图：有声导览体验 ===== -->
+<section class="view" id="demo">
+  <div class="demo-hero">
+    <div class="container">
+      <p class="eyebrow">产品 Demo · 故事化有声导览</p>
+      <h1>同一处风景，三种听法</h1>
+      <p>模拟合作方 H5 / 小程序中的有声导览体验：为同一内容点位制作多版本音频素材。下方为项目已完成的样片——点击播放，感受「说明书式讲解」与「故事化有声叙事」的差别。</p>
+    </div>
+  </div>
+
+  <div class="container demo-layout">
+    <aside class="demo-tracks">
+      <h3>选择一段内容</h3>
+      <button class="track-btn active" data-track="0">
+        <span class="track-thumb"><img src="assets/img/hlx-teahouse-street.jpg" alt="复兴老茶馆" loading="lazy"></span>
+        <span class="track-info"><b>黄龙溪 · 复兴老茶馆</b><span>文艺叙事版导览</span><br><span class="track-ver">2 个版本可选</span></span>
+      </button>
+      <button class="track-btn" data-track="1">
+        <span class="track-thumb"><img src="assets/img/hlx-ginkgo.jpg" alt="黄龙溪古镇" loading="lazy"></span>
+        <span class="track-info"><b>黄龙溪 · 少儿探秘</b><span>少儿科普版导览</span><br><span class="track-ver">面向亲子研学</span></span>
+      </button>
+      <button class="track-btn" data-track="2">
+        <span class="track-thumb"><img src="assets/img/workshop.jpg" alt="蜀绣工坊" loading="lazy"></span>
+        <span class="track-info"><b>蜀绣工坊 · 绣娘口述</b><span>传承人口述档案</span><br><span class="track-ver">抢救性记录</span></span>
+      </button>
+    </aside>
+
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-notch"></div>
+          <div class="phone-content">
+            <div class="pt-img">
+              <img id="ptImg" src="assets/img/hlx-teahouse-street.jpg" alt="复兴老茶馆">
+              <span class="pt-badge" id="ptBadge">有声导览 · 样片</span>
+            </div>
+            <h2 class="pt-title" id="ptTitle">黄龙溪 · 复兴老茶馆</h2>
+            <p class="pt-meta" id="ptMeta">文艺叙事版 · 播音专业录制 · 约 20 秒</p>
+            <div class="chips" id="chips">
+              <button class="chip active" data-ver="0">文艺叙事版</button>
+              <button class="chip" data-ver="1">少儿科普版</button>
+            </div>
+            <div class="player">
+              <canvas class="wave-canvas" id="wave" height="56"></canvas>
+              <div class="seek-row">
+                <span class="time" id="curTime">00:00</span>
+                <input type="range" class="seek" id="seek" min="0" max="100" value="0" step="0.1" aria-label="播放进度">
+                <span class="time" id="durTime">00:00</span>
+              </div>
+              <button class="play-btn" id="playBtn" aria-label="播放">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path id="playIcon" d="M8 5.14v13.72L19 12 8 5.14z"/></svg>
+              </button>
+            </div>
+            <div class="lyrics" id="lyrics"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="demo-note">
+      <h3>这份 Demo 说明什么</h3>
+      <p>这是「故事化有声导览内容全案」的样片演示：针对同一文化点位制作了<b>文艺叙事版</b>与<b>少儿科普版</b>，以及传承人<b>原生口述档案</b>——同一套内容资产，可服务不同游客人群与不同合作场景。</p>
+      <p>交付形态为音频文件 + 分段字幕文稿，可直接接入合作方现有小程序、H5 导览系统、公众号或现场二维码。</p>
+      <p>左侧三段均为本 Demo 真实生成的样片音频，由文本生成语音工具合成，仅用于方案演示；正式项目中将以播音专业真人录制为准。</p>
+      <p><span class="flag">演示数据</span> 点位信息与文案为示意样例，不代表已落地项目。</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== 视图：项目档案 ===== -->
+<section class="view" id="plan">
+  <div class="plan-hero">
+    <div class="container">
+      <p class="eyebrow">项目档案 · 商业计划书要点</p>
+      <h1>声叙文脉项目档案</h1>
+      <p>「声叙文脉」有声叙事赋能地方文旅——新媒介下在地文化传播服务项目。高校传媒专业力量赋能本土文旅，聚焦非遗与在地文化有声内容资产制作、文旅品牌全媒体整合传播与线下沉浸式场景打造。</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="arch-sec">
+      <div class="section-head reveal">
+        <p class="eyebrow">项目概述</p>
+        <h2 class="h2">定位：地方文旅创意内容服务商</h2>
+        <p class="lead">核心输出是文旅内容创意服务，不售卖硬件、不开发独立商业 APP——「内容为本，技术为辅」，文化叙事严谨度放在首位。</p>
+      </div>
+      <div class="arch-grid">
+        <div class="arch-item reveal"><h4><span class="n">01</span>内容生产</h4><p>依托编导专业完成调研、脚本、分镜；播音专业完成访谈、录音、多风格配音与混音；AIGC 仅作辅助工具，全部产出经人工改写、审核。</p></div>
+        <div class="arch-item reveal"><h4><span class="n">02</span>创新点</h4><p>叙事创新（说明书升级为故事化口述）· 资源创新（聚焦口述声音档案）· 形式创新（AIGC + 线下实景联动）· 模式创新（高校艺术专业赋能地方文化，文化严谨与传播效果并重）。</p></div>
+        <div class="arch-item reveal"><h4><span class="n">03</span>社会价值</h4><p>抢救留存在地口述文化资源；赋能文旅产业升级；创新「高校传媒专业 + 地方文化保护」可复制路径；推动传统文化创造性转化。</p></div>
+        <div class="arch-item reveal"><h4><span class="n">04</span>应用闭环</h4><p>产出的音频、视频交付合作方用于小程序、公众号、现场二维码导览与宣传推广，形成「线上内容传播引流，线下实地体验承接」闭环。</p></div>
+      </div>
+    </div>
+
+    <div class="arch-sec">
+      <div class="section-head reveal">
+        <p class="eyebrow">市场分析</p>
+        <h2 class="h2">细分赛道，缺口明显</h2>
+        <p class="lead">文旅行业已从「拼硬件、拼风景」进入「拼内容、拼体验」阶段；文旅音频、口述档案、研学体验是细分赛道，专门做本土口述文化内容生产的服务商较少。</p>
+      </div>
+      <div class="cmp-table-wrap reveal" style="overflow-x:auto">
+        <table class="cmp-table">
+          <thead>
+            <tr><th>对比维度</th><th>文旅单位内部部门</th><th>商业广告/传媒外包</th><th>通用导览平台</th><th>其他大学生项目</th><th>声叙文脉 ★</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>内容深度</td><td class="tag-pos">掌握一手文史</td><td class="tag-neg">理解浅、易流于表面</td><td class="tag-neg">网络摘抄、模板化</td><td class="tag-neg">重技术、内容薄弱</td><td class="tag-pos">田野调研 + 文史双重审核</td></tr>
+            <tr><td>一手口述档案</td><td class="tag-neg">缺少采集能力</td><td class="tag-neg">少做深度访谈</td><td class="tag-neg">无</td><td class="tag-neg">普遍缺失</td><td class="tag-pos">核心特色，抢救性记录</td></tr>
+            <tr><td>新媒体表达</td><td class="tag-neg">偏官方严肃</td><td class="tag-pos">经验丰富</td><td class="tag-pos">成熟技术</td><td class="tag-pos">贴近年轻受众</td><td class="tag-pos">专业视听表达 + 年轻化叙事</td></tr>
+            <tr><td>定制化能力</td><td class="tag-neg">编制有限、效率低</td><td class="tag-pos">项目经验丰富</td><td class="tag-neg">标准化模板</td><td class="tag-neg">多为公益展示</td><td class="tag-pos">一项目一调研、一客户一方案</td></tr>
+            <tr><td>成本与可持续</td><td class="tag-pos">体制内稳定</td><td class="tag-neg">报价昂贵</td><td class="tag-pos">规模化</td><td class="tag-neg">难长期运营</td><td class="tag-pos">报价友好，轻资产可持续</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="arch-sec">
+      <div class="section-head reveal">
+        <p class="eyebrow">财务与融资</p>
+        <h2 class="h2">轻资产模型，清晰可行</h2>
+        <p class="lead">首年财务测算为比赛模拟合理数据；无厂房、大型设备等高投入，主要支出集中于版权素材、AI 会员、差旅与团队劳务补贴。</p>
+      </div>
+      <div class="arch-grid" style="margin-bottom:28px">
+        <div class="arch-item reveal"><h4><span class="n">01</span>首年测算</h4><p>总营收 7.5 万元 · 直接运营成本 4.875 万元 · 毛利率 35% · 年度净利润 1.8 万元 · 净利率 24% · 静态投资回收期 4 年。</p></div>
+        <div class="arch-item reveal"><h4><span class="n">02</span>成本结构</h4><p>固定成本（素材会员、AIGC 订阅、设备折旧、云存储）+ 变动成本（差旅、授权、物料）+ 人力成本（项目绩效/劳务补贴）+ 营销商务成本。</p></div>
+        <div class="arch-item reveal"><h4><span class="n">03</span>融资计划</h4><p>引入战略合作资金 80 万元，出让股权 25%，全部用于项目运营、无债务；资金按 30/20/20/10/20 分配至内容研发、商务推广、合规建设、客户服务与人力运营。</p></div>
+        <div class="arch-item reveal">
+          <h4><span class="n">04</span>股权架构</h4>
+          <div class="eq-bar" aria-hidden="true"><div class="inv">投资方 25%</div><div class="founder">创始核心团队 45%</div><div class="team">执行团队 30%</div></div>
+          <div class="eq-legend">
+            <span><i style="background:var(--cinnabar)"></i>战略投资方：资金入股，享分红与知情权</span>
+            <span><i style="background:var(--ink)"></i>创始团队：创意/运营/商务入股，掌战略决策</span>
+            <span><i style="background:var(--gold)"></i>执行团队：按劳分配，绩效激励</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-item reveal"><h4><span class="n">05</span>退出机制</h4><p>年度分红退出（盈利后按年分红，3–5 年收回本金）；股权回购退出（运营满 5 年按「本金 + 年化 8–10% 溢价」回购）；并购退出（对接文旅企业并购）。</p></div>
+    </div>
+
+    <div class="arch-sec">
+      <div class="section-head reveal">
+        <p class="eyebrow">风险控制</p>
+        <h2 class="h2">三道防线，把风险关在笼子里</h2>
+      </div>
+      <div class="risk-grid">
+        <div class="risk-card reveal"><h4>内容与技术风险</h4><p><span class="k">应对：</span>文史双重审核机制；AIGC 执行「AI 初稿 + 人工改写 + 三级审核」；版权合规管理（商用授权资源 + 访谈授权协议）；外采设备双备份与应急预案。</p></div>
+        <div class="risk-card reveal"><h4>市场风险</h4><p><span class="k">应对：</span>坚持「一手田野口述档案」差异化路线；脚本定稿签字确认、变更走流程；客户多元化布局；内容审核小组与评论区维护。</p></div>
+        <div class="risk-card reveal"><h4>财务与融资风险</h4><p><span class="k">应对：</span>精细化预算管理、优先复用学校资源；拓宽资金来源（大创经费、竞赛奖金、小额赞助）；以项目养项目；专门财务管理员，账目透明可追溯。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#E3B35A"/><g fill="none" stroke="#1E2B26" stroke-width="4.5" stroke-linecap="round"><path d="M10 26v12M20 18v28M30 10v44M40 20v24M50 24v16"/></g></svg>
+      声叙文脉
+    </div>
+    <p class="foot-note">「声叙文脉」有声叙事赋能地方文旅 —— 新媒介下在地文化传播服务项目 · 高校传媒专业赋能地方文旅。<br><b>本页面为项目 Demo：</b>图片为实景素材与 AI 生成示意，音频为文本转语音样片，财务数据为策划书中的比赛模拟测算值。</p>
+    <p class="foot-note" style="max-width:220px">2026 · 项目策划书配套交互演示</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script>
+/* ============ 工具 ============ */
+const $=(s,c=document)=>c.querySelector(s);
+const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
+const fmt=t=>{if(!isFinite(t))return'00:00';const m=Math.floor(t/60),s=Math.floor(t%60);return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')};
+
+/* ============ 导航 ============ */
+const nav=$('#siteNav'),burger=$('#navBurger'),links=$('#navLinks');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');links.classList.toggle('open')});
+links.addEventListener('click',e=>{if(e.target.tagName==='A'){burger.classList.remove('open');links.classList.remove('open')}});
+
+/* ============ 路由 ============ */
+function route(){
+  const h=(location.hash||'').replace('#','')||'home';
+  const v=['home','demo','plan'].includes(h)?h:'home';
+  $$('.view').forEach(s=>s.classList.toggle('active',s.id===v));
+  $$('[data-nav]').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+v));
+  window.scrollTo({top:0});
+  const dark=v!=='home';
+  nav.classList.toggle('dark',dark);
+  nav.classList.toggle('scrolled',!dark&&window.scrollY>12);
+  window.dispatchEvent(new Event('resize'));
+  if(v==='demo'){initPlayer()}
+}
+window.addEventListener('hashchange',route);
+window.addEventListener('scroll',()=>{if(!location.hash||location.hash==='#home'){nav.classList.toggle('scrolled',window.scrollY>12)}},{passive:true});
+
+/* ============ 滚动揭示 ============ */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12});
+if(!('IntersectionObserver' in window)){$$('.reveal').forEach(el=>el.classList.add('in'))}
+$$('.reveal').forEach(el=>io.observe(el));
+
+/* ============ 有声导览播放器 ============ */
+const TRACKS=[
+  {
+    img:'assets/img/hlx-teahouse-street.jpg',badge:'有声导览 · 样片',title:'黄龙溪 · 复兴老茶馆',meta:'文艺叙事版 · 播音专业录制',
+    versions:[
+      {label:'文艺叙事版',src:'assets/audio/narration.wav',
+        lyrics:['清晨的黄龙溪，青石板还沾着露水','古码头的水声，从千年之前一直响到今天','推开复兴老茶馆的木门','盖碗茶的茉莉香，混着竹椅吱呀声扑面而来','堂倌吆喝一嗓子，龙门阵就摆开了','这里没有说明书式的讲解，只有故事','在茶烟里，慢慢升起来']},
+      {label:'少儿科普版',src:'assets/audio/kids.wav',
+        lyrics:['小朋友，你知道黄龙溪古镇有多少岁了吗？','它已经一千七百多岁啦，比很多朝代都要古老','它的名字呀，还和一条金色的龙有关呢','快跟紧我，我们一起','去古镇里寻找龙的足迹吧！']}
+    ]
+  },
+  {
+    img:'assets/img/hlx-ginkgo.jpg',badge:'少儿导览 · 样片',title:'黄龙溪 · 少儿探秘',meta:'少儿科普版 · 亲子研学适用',
+    versions:[
+      {label:'少儿科普版',src:'assets/audio/kids.wav',
+        lyrics:['小朋友，你知道黄龙溪古镇有多少岁了吗？','它已经一千七百多岁啦，比很多朝代都要古老','它的名字呀，还和一条金色的龙有关呢','快跟紧我，我们一起','去古镇里寻找龙的足迹吧！']}
+    ]
+  },
+  {
+    img:'assets/img/workshop.jpg',badge:'口述档案 · 样片',title:'蜀绣工坊 · 绣娘口述',meta:'传承人口述版 · 抢救性记录',
+    versions:[
+      {label:'传承人口述版',src:'assets/audio/oral.wav',
+        lyrics:['我十四岁那年，跟着师父学蜀绣','师父说：绣花先绣心，心要静，针才稳','那时候我白天做活路，晚上就着煤油灯练针法','一根丝线劈成八股，绣一朵芙蓉要熬好几个夜','一晃六十多年了','这些针法，我都还在用']}
+    ]
+  }
+];
+const audio=new Audio();audio.preload='metadata';
+let curTrack=0,curVer=0,playerReady=false;
+const cv=$('#wave'),ctx=cv.getContext('2d');
+let analyser=null,freq=null,raf=null,playState=false;
+
+/* WebAudio 分析器（波形） */
+let audioCtx=null;
+function setupAnalyser(){
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+    const src=audioCtx.createMediaElementSource(audio);
+    analyser=audioCtx.createAnalyser();
+    analyser.fftSize=128;
+    src.connect(analyser);analyser.connect(audioCtx.destination);
+    freq=new Uint8Array(analyser.frequencyBinCount);
+  }catch(e){analyser=null}
+}
+function drawWave(){
+  raf=requestAnimationFrame(drawWave);
+  const W=cv.clientWidth,H=cv.clientHeight,dpr=window.devicePixelRatio||1;
+  if(cv.width!==W*dpr){cv.width=W*dpr;cv.height=H*dpr}
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,W,H);
+  const n=44,gap=3,bw=(W-gap*(n-1))/n;
+  let data=null;
+  if(analyser){analyser.getByteFrequencyData(freq);data=freq}
+  for(let i=0;i<n;i++){
+    let h;
+    if(data){
+      const v=data[Math.floor(i/n*freq.length)]/255;
+      h=playState?Math.max(4,v*H):4+Math.sin(i*1.3)*2+4;
+    }else{
+      h=playState?(8+Math.abs(Math.sin(i*.8+Date.now()/180))*H*.75):10;
+    }
+    const grad=ctx.createLinearGradient(0,H,0,H-h);
+    grad.addColorStop(0,'#E3B35A');grad.addColorStop(1,'rgba(227,179,90,.15)');
+    ctx.fillStyle=grad;
+    ctx.beginPath();
+    const r=bw/2;
+    ctx.roundRect(i*(bw+gap),H-h,bw,h,r);
+    ctx.fill();
+  }
+}
+function stopDraw(){if(raf){cancelAnimationFrame(raf);raf=null}}
+
+/* UI 渲染 */
+function renderTrack(){
+  const t=TRACKS[curTrack],v=t.versions[curVer];
+  $('#ptImg').src=t.img;
+  $('#ptBadge').textContent=t.badge;
+  $('#ptTitle').textContent=t.title;
+  $('#ptMeta').textContent=v.label+' · '+(t.meta.split(' · ').slice(1).join(' · '));
+  const chips=$('#chips');
+  chips.innerHTML='';
+  t.versions.forEach((ver,i)=>{
+    const b=document.createElement('button');
+    b.className='chip'+(i===curVer?' active':'');
+    b.textContent=ver.label;
+    b.dataset.ver=i;
+    b.addEventListener('click',()=>{curVer=i;renderTrack();audio.pause();setPlay(false)});
+    chips.appendChild(b);
+  });
+  $('#lyrics').innerHTML=v.lyrics.map((l,i)=>'<div class="lyr" data-li="'+i+'">'+l+'</div>').join('');
+  setAudioSrc(v.src);
+}
+function setAudioSrc(src){
+  if(audio.src!==location.href&&audio.src!==src){
+    audio.src=src;audio.load();playerReady=false;
+    $('#curTime').textContent='00:00';$('#durTime').textContent='00:00';
+    $('#seek').value=0;document.querySelector('.seek').style.setProperty('--p','0%');
+  }else if(audio.src===location.href){
+    audio.src=src;audio.load();
+  }
+  audio.addEventListener('loadedmetadata',()=>{$('#durTime').textContent=fmt(audio.duration)}, {once:true});
+}
+function setPlay(on){
+  playState=on;
+  $('#playIcon').setAttribute('d',on?'M7 4.8v14.4l12-7.2L7 4.8z':'M8 5.14v13.72L19 12 8 5.14z');
+  $('#playBtn').setAttribute('aria-label',on?'暂停':'播放');
+}
+$('#playBtn').addEventListener('click',()=>{
+  if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();
+  if(!playerReady){audio.play().then(()=>{playerReady=true;setPlay(true)}).catch(()=>{})}
+  else if(audio.paused){audio.play();setPlay(true)}else{audio.pause();setPlay(false)}
+});
+audio.addEventListener('pause',()=>setPlay(false));
+audio.addEventListener('ended',()=>{setPlay(false);audio.currentTime=0});
+audio.addEventListener('timeupdate',()=>{
+  const d=audio.duration||0;
+  $('#curTime').textContent=fmt(audio.currentTime);
+  const pct=d?audio.currentTime/d*100:0;
+  $('#seek').value=pct;
+  document.querySelector('.seek').style.setProperty('--p',pct+'%');
+  if(d&&curTrack<TRACKS.length){
+    const v=TRACKS[curTrack].versions[curVer];
+    const li=Math.min(v.lyrics.length-1,Math.floor(audio.currentTime/d*v.lyrics.length));
+    $$('#lyrics .lyr').forEach((el,i)=>el.classList.toggle('on',i===li));
+  }
+});
+$('#seek').addEventListener('input',e=>{
+  const d=audio.duration||0,pct=+e.target.value;
+  if(d)audio.currentTime=pct/100*d;
+  document.querySelector('.seek').style.setProperty('--p',pct+'%');
+});
+$$('.track-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    curTrack=+btn.dataset.track;curVer=0;
+    $$('.track-btn').forEach(b=>b.classList.toggle('active',b===btn));
+    renderTrack();audio.pause();setPlay(false);
+  });
+});
+let playerStarted=false;
+function initPlayer(){
+  if(playerStarted)return;playerStarted=true;
+  renderTrack();
+  setupAnalyser();
+  drawWave();
+  cv.addEventListener('click',()=>$('#playBtn').click());
+}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){audio.pause()}});
+
+/* ============ ECharts ============ */
+function initCharts(){
+  if(!window.echarts){
+    $$('.chart-box').forEach(b=>{b.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,.6);font-size:13px;font-weight:300">图表组件未加载，请联网后刷新查看</div>'});
+    return;
+  }
+  const base={backgroundColor:'transparent',tooltip:{trigger:'axis',triggerOn:'click',renderMode:'richText',confine:true,backgroundColor:'rgba(30,43,38,.95)',textStyle:{color:'#F5EFE1'}}};
+  const rev=echarts.init($('#chartRevenue'));
+  rev.setOption(Object.assign({},base,{
+    grid:{left:8,right:14,top:34,bottom:6,containLabel:true},
+    tooltip:Object.assign({},base.tooltip,{formatter:function(p){if(!p||!p[0])return'';return p[0].name+' 年<br>营收：'+p[0].value+' 万元'+(p[0].dataIndex===0?'（测算值）':'（演示推算）')}}),
+    xAxis:{type:'category',data:['第一年','第二年','第三年'],axisLine:{lineStyle:{color:'rgba(255,255,255,.25)'}},axisLabel:{color:'rgba(255,255,255,.8)'},axisTick:{show:false}},
+    yAxis:{type:'value',name:'万元',nameTextStyle:{color:'rgba(255,255,255,.5)'},splitLine:{lineStyle:{color:'rgba(255,255,255,.08)'}},axisLabel:{color:'rgba(255,255,255,.6)'}},
+    series:[{
+      name:'营收',type:'bar',data:[7.5,12,18],barWidth:'46%',
+      itemStyle:{borderRadius:[8,8,0,0],color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#E3B35A'},{offset:1,color:'rgba(192,74,44,.55)'}])},
+      label:{show:true,position:'top',color:'#E3B35A',formatter:'{c} 万',fontFamily:'Noto Serif SC'}
+    }]
+  }));
+  const fund=echarts.init($('#chartFunding'));
+  fund.setOption(Object.assign({},base,{
+    color:['#E3B35A','#C04A2C','#5E7A5E','#8C7B4D','#2E3D35'],
+    tooltip:Object.assign({},base.tooltip,{trigger:'item',formatter:function(p){if(!p||!p.data)return'';return p.name+'<br>'+p.value+' 万元（'+p.percent+'%）'}}),
+    legend:{bottom:0,textStyle:{color:'rgba(255,255,255,.75)',fontSize:11},itemWidth:10,itemHeight:10},
+    series:[{
+      name:'资金用途',type:'pie',radius:['46%','72%'],center:['50%','42%'],
+      avoidLabelOverlap:true,
+      label:{color:'rgba(255,255,255,.85)',fontSize:11,formatter:'{b}\n{d}%'},
+      labelLine:{lineStyle:{color:'rgba(255,255,255,.3)'}},
+      data:[
+        {name:'内容生产研发',value:24},
+        {name:'市场与商务',value:16},
+        {name:'风险与合规',value:16},
+        {name:'人力与综合',value:16},
+        {name:'客户服务',value:8}
+      ]
+    }]
+  }));
+  window.addEventListener('resize',()=>{rev.resize();fund.resize()});
+}
+initCharts();
+route();
+</script>
+
+
+</body>
+</html>
